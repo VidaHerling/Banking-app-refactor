@@ -41,7 +41,7 @@ const page = document.getElementById("root");
 
 ui.home = `
 <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <img src="bank_account.jpeg" class="card-img-top" alt="bank account">
   <div class="card-body">
     <h5 class="card-title">Steadfast Bank Homepage</h5>
     <p class="card-text">Welcome to the bank!</p>
@@ -58,8 +58,14 @@ ui.createAccount = `
   <img src="bank_account.jpeg" class="card-img-top" alt="bank account">
   <div class="card-body">
     <h5 class="card-title">Create Account</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Create Account</a>
+    Name<br>
+    <input type="text" id="name" placeholder="Name"><br>
+    Email<br>
+    <input type="email" id="email" placeholder="Email"><br>
+    Password<br>
+    <input type="password" id="password" placeholder="Email"><br>
+    <button class="btn btn-primary" onClick="createAccount()">Create Account</button>
+    <div id="accountStatus"></div>
   </div>
 </div>
 `;
@@ -136,10 +142,9 @@ ui.allData = `
 <div class="card" style="width: 18rem;">
   <img src="bank_account.jpeg" class="card-img-top" alt="bank account">
   <div class="card-body">
-    <h5 class="card-title">Log in</h5>
-    <input id="email" type="email" placeholder="Email">
-    <input id="password" type="password" placeholder="Password">
-    <a href="#" class="btn btn-primary">Login</a>
+    <h5 class="card-title">All data display here</h5>
+    <button class="btn btn-success" onClick="showAllData()">Show all accounts data</button>
+    <div id="allDataStatus"></div>
   </div>
 </div>
 `;
@@ -147,3 +152,5 @@ ui.allData = `
 const loadAllData = () => {
   page.innerHTML = ui.allData;
 }
+
+loadHome();
