@@ -8,50 +8,61 @@ function CreateAccount(){
           bgcolor = "primary"
           header="Create Account"
           status={status}
+          // body={show ? 
+          // <CreateForm setShow={setShow}/> :
+          // <CreateNewForm setShow={setShow}/>}
           body={show ? 
-          <CreateForm setShow={setShow}/> :
-          <CreateNewForm setShow={setShow}/>}
+            <BankForm 
+              name="name"
+              email="email"
+              password="password"
+              buttonName="Create Account"
+              setShow={setShow}
+            /> :
+            <CreateNewForm setShow={setShow} />
+          }
+
       />
     </div>
   )
 }
 
-function CreateForm(props){
-  // set states for the form values
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+// function CreateForm(props){
+//   // set states for the form values
+//   const [name, setName] = React.useState("");
+//   const [email, setEmail] = React.useState("");
+//   const [password, setPassword] = React.useState("");
   
-  const ctx = React.useContext(UserContext);
+//   const ctx = React.useContext(UserContext);
 
-  const handleChange = () => {
-    ctx.users.push({
-      name: name,
-      email: email,
-      password: password
-    })
-    props.setShow(false);
-  }
+//   const handleChange = () => {
+//     ctx.users.push({
+//       name: name,
+//       email: email,
+//       password: password
+//     })
+//     props.setShow(false);
+//   }
 
-  return(
-    <div>
-      Name<br/>
-      <input type="text" value={name} placeholder="Enter Name" 
-      onChange={e => setName(e.target.value)}/><br/>
+//   return(
+//     <div>
+//       Name<br/>
+//       <input type="text" value={name} placeholder="Enter Name" 
+//       onChange={e => setName(e.target.value)}/><br/>
       
-      Email<br/>
-      <input type="email" value={email} placeholder="Enter Email" 
-      onChange={e => setEmail(e.target.value)}/><br/>
+//       Email<br/>
+//       <input type="email" value={email} placeholder="Enter Email" 
+//       onChange={e => setEmail(e.target.value)}/><br/>
       
-      Password<br/>
-      <input type="password" value={password} placeholder="Enter Password" 
-      onChange={e => setPassword(e.target.value)}/>
-      <br/><br/>
+//       Password<br/>
+//       <input type="password" value={password} placeholder="Enter Password" 
+//       onChange={e => setPassword(e.target.value)}/>
+//       <br/><br/>
       
-      <button className="btn btn-success" onClick={handleChange}>Create Account</button>
-    </div>
-  )
-}
+//       <button className="btn btn-success" onClick={handleChange}>Create Account</button>
+//     </div>
+//   )
+// }
 
 function CreateNewForm(props){
   return (

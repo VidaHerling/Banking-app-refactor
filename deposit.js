@@ -1,5 +1,16 @@
 function Deposit(){
   return (
-    <h1>Deposit Component</h1>
+    <div>
+      <Card 
+          bgcolor = "warning"
+          header="Deposit"
+          body={
+          <BankForm
+            email="email"
+            amount="amount"
+            buttonName="Deposit"
+          />}
+      />
+    </div>
   )
 }

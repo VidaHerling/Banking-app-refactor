@@ -1,5 +1,15 @@
 function Balance(){
   return (
-    <h1>Balance Component</h1>
+    <div>
+      <Card 
+          bgcolor = "warning"
+          header="Balance"
+          body={
+          <BankForm
+            email="email"
+            buttonName="Check Balance"
+          />}
+      />
+    </div>
   )
 }

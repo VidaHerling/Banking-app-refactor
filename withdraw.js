@@ -1,5 +1,16 @@
 function Withdraw(){
   return (
-    <h1>Withdraw Component</h1>
+    <div>
+      <Card 
+          bgcolor = "secondary"
+          header="Withdraw"
+          body={
+          <BankForm
+            email="email"
+            amount="amount"
+            buttonName="Withdraw"
+          />}
+      />
+    </div>
   )
 }
