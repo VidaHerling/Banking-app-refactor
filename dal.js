@@ -34,4 +34,43 @@ function allUsers(){
   })
 }
 
-module.exports = {createAccount, allUsers};
+// deposit
+function deposit(email, amount){
+  return new Promise((resolve, reject) => {
+    const collection = db.collection("users");
+    collection.updateOne(
+      { email },
+      {
+        $inc: {
+          balance: Number(amount)
+        }
+      }
+    )
+  })
+}
+
+// withdraw
+function withdraw(email, amount){
+  const collection = db.collection("users");
+  collection.updateOne(
+    { email },
+    {
+      $inc: {
+        balance: Number(-amount)
+      }
+    }
+  )
+}
+
+// balance
+function balance(email){
+  return new Promise((resolve, reject) => {
+    const collection = db.collection("users");
+    collection.find( { email })
+      .toArray(function(err, doc){
+        err ? reject(err) : resolve(doc)
+      })
+    })
+}
+
+module.exports = {createAccount, allUsers, deposit, withdraw, balance};
