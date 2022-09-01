@@ -25,25 +25,29 @@ app.get('/account/create/:name/:email/:password', function(req, res){
 // });
 
 // // user deposit, withdraw and balance
-// app.get('/account/deposit/:email/:amount', function(req, res){
-//   res.send({
-//     email: req.params.email,
-//     amount: req.params.amount
-//   });
-// });
+app.get('/account/deposit/:email/:amount', function(req, res){
+  dal.deposit(req.params.email, req.params.amount)
+    .then(user => {
+      console.log(user);
+      res.send(user);
+    })
+});
 
-// app.get('/account/withdraw/:email/:amount', function(req, res){
-//   res.send({
-//     email: req.params.email,
-//     amount: req.params.amount
-//   });
-// });
+app.get('/account/withdraw/:email/:amount', function(req, res){
+  dal.withdraw(req.params.email, req.params.amount)
+    .then(user => {
+      console.log(user);
+      res.send(user);
+    })
+});
 
-// app.get('/account/balance/:email', function(req, res){
-//   res.send({
-//     email: req.params.email
-//   });
-// });
+app.get('/account/balance/:email', function(req, res){
+  dal.balance(req.params.email)
+    .then(user => {
+      console.log(user)
+      res.send(user)
+    })
+});
 
 // all accounts
 app.get('/account/all', function(req, res){
