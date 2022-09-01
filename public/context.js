@@ -43,8 +43,13 @@ function BankForm(props){
   const handleSubmit = (e) => {
     e.preventDefault();
     if(buttonName === "Create Account"){
-      ctx.users.push(inputs);
-      setShow(false);
+      console.log(inputs.name, inputs.email, inputs.password);
+      const url = `/account/create/${inputs.name}/${inputs.email}/${inputs.password}`;
+      (async () => {
+        const res = await fetch(url);
+        const data = await res.json();
+      })();
+      props.setShow(false);
     }
     if(buttonName === "Login"){
       

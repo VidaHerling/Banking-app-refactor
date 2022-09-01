@@ -32,15 +32,14 @@ function CreateAccount(){
 //   const [name, setName] = React.useState("");
 //   const [email, setEmail] = React.useState("");
 //   const [password, setPassword] = React.useState("");
-  
-//   const ctx = React.useContext(UserContext);
 
-//   const handleChange = () => {
-//     ctx.users.push({
-//       name: name,
-//       email: email,
-//       password: password
-//     })
+//   const handleSubmit = () => {
+//     console.log(name, email, password);
+//     const url = `/account/create/${name}/${email}/${password}`;
+//     (async () => {
+//        const res = await fetch(url);
+//        const data = await res.json();
+//     })();
 //     props.setShow(false);
 //   }
 
@@ -59,7 +58,7 @@ function CreateAccount(){
 //       onChange={e => setPassword(e.target.value)}/>
 //       <br/><br/>
       
-//       <button className="btn btn-success" onClick={handleChange}>Create Account</button>
+//       <button className="btn btn-success" onClick={handleSubmit}>Create Account</button>
 //     </div>
 //   )
 // }
