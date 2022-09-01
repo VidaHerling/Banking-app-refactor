@@ -51,8 +51,20 @@ function BankForm(props){
       })();
       props.setShow(false);
     }
-    if(buttonName === "Login"){
-      
+    if(buttonName === "Deposit"){
+      console.log(inputs.email, inputs.amount);
+      const url = `/account/deposit/${inputs.email}/${inputs.amount}`;
+    }
+    if(buttonName === "Withdraw"){
+      console.log(inputs.email, inputs.amount);
+      const url = `/account/withdraw/${inputs.email}/${inputs.amount}`;
+      // (async () => {
+      //   const res = await fetch(url);
+      //   const data = await res.json();
+      // })();
+    }
+    if(buttonName === "Check Balance"){
+  
     }
     return;
   }
